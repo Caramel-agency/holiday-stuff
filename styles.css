@@ -1088,15 +1088,15 @@ h2 em,
 
 .editorial-destinations {
   width: min(1500px, calc(100% - 32px));
-  margin: 0 auto 116px;
-  padding: 78px 48px 68px;
+  margin: 0 auto 76px;
+  padding: 54px 32px 48px;
   overflow: hidden;
   border-radius: 0 0 28px 28px;
   background: #eef2f8;
 }
 
 .dest-heading {
-  margin-bottom: 46px;
+  margin-bottom: 28px;
   text-align: center;
 }
 
@@ -1418,6 +1418,70 @@ h2 em,
   text-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
 }
 
+.destination-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(320px, 34%);
+  gap: 18px;
+  overflow-x: auto;
+  padding: 2px 2px 18px;
+  scroll-snap-type: x mandatory;
+}
+
+.mini-destination-card {
+  min-height: 510px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--navy);
+  color: var(--white);
+  scroll-snap-align: start;
+}
+
+.mini-destination-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.mini-destination-card:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 29, 59, 0.04), rgba(7, 29, 59, 0.84));
+}
+
+.mini-destination-card div {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1;
+}
+
+.mini-destination-card span {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.mini-destination-card h3 {
+  margin: 12px 0 18px;
+  font-family: var(--serif);
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.mini-destination-card .btn {
+  width: 100%;
+}
+
 .steps {
   counter-reset: step;
 }
@@ -1482,10 +1546,10 @@ h2 em,
 }
 
 .letter-gallery {
-  width: min(1220px, 100%);
-  min-height: 520px;
+  width: min(980px, 100%);
+  min-height: 300px;
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   gap: clamp(10px, 1.3vw, 18px);
   z-index: 1;
@@ -1529,8 +1593,8 @@ h2 em,
 .way-copy {
   position: relative;
   z-index: 2;
-  width: min(940px, 100%);
-  margin: 82px auto 0;
+  width: min(720px, 100%);
+  margin: 54px auto 0;
   display: grid;
   justify-items: center;
   gap: 28px;
@@ -1703,8 +1767,8 @@ h2 em,
 
 .az-services {
   width: min(1500px, calc(100% - 32px));
-  margin: 0 auto 112px;
-  padding: 70px 0 44px;
+  margin: 0 auto 76px;
+  padding: 48px 0 34px;
   display: grid;
   grid-template-columns: minmax(320px, 0.42fr) minmax(0, 1fr);
   gap: 34px;
@@ -1714,7 +1778,7 @@ h2 em,
 }
 
 .az-copy {
-  min-height: 660px;
+  min-height: 540px;
   padding: clamp(34px, 5vw, 66px) 36px;
   display: flex;
   flex-direction: column;
@@ -1749,7 +1813,7 @@ h2 em,
 .az-rail {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(420px, 48%);
+  grid-auto-columns: minmax(340px, 42%);
   gap: 18px;
   overflow-x: auto;
   padding: 0 28px 18px 0;
@@ -1758,14 +1822,14 @@ h2 em,
 }
 
 .az-card {
-  min-height: 660px;
+  min-height: 540px;
   scroll-snap-align: start;
   background: var(--white);
 }
 
 .az-card img {
   width: 100%;
-  height: 455px;
+  height: 350px;
   object-fit: cover;
 }
 
@@ -2629,7 +2693,7 @@ h2 em,
 
 .site-footer {
   width: min(1500px, calc(100% - 32px));
-  min-height: 720px;
+  min-height: 500px;
   margin: 28px auto 0;
   position: relative;
   overflow: hidden;
@@ -2676,11 +2740,11 @@ h2 em,
 
 .footer-shell {
   width: min(1370px, calc(100% - 56px));
-  min-height: 720px;
+  min-height: 500px;
   position: relative;
   z-index: 2;
   margin: 0 auto;
-  padding: 82px 0 28px;
+  padding: 54px 0 24px;
   display: flex;
   flex-direction: column;
 }
@@ -2696,14 +2760,14 @@ h2 em,
 }
 
 .footer-logo {
-  width: 176px;
-  height: 112px;
+  width: 142px;
+  height: 86px;
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.2);
 }
 
 .footer-brand-block p {
   max-width: 430px;
-  margin: 18px 0 0;
+  margin: 10px 0 0;
   color: rgba(255, 255, 255, 0.74);
   font-family: var(--serif);
   font-size: clamp(25px, 2.4vw, 34px);
@@ -2711,11 +2775,11 @@ h2 em,
 }
 
 .footer-main {
-  margin-top: 54px;
-  padding: 32px 0 34px;
+  margin-top: 34px;
+  padding: 26px 0 28px;
   display: grid;
   grid-template-columns: minmax(220px, 0.9fr) minmax(250px, 1.15fr) minmax(220px, 0.9fr) minmax(130px, 0.45fr);
-  gap: 42px;
+  gap: 30px;
   border-top: 1px dashed rgba(255, 255, 255, 0.34);
   border-bottom: 1px dashed rgba(255, 255, 255, 0.34);
 }
@@ -2730,8 +2794,8 @@ h2 em,
 }
 
 .footer-button {
-  width: min(230px, 100%);
-  min-height: 78px;
+  width: min(240px, 100%);
+  min-height: 60px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2739,7 +2803,7 @@ h2 em,
   border-radius: 999px;
   color: var(--white);
   font-family: var(--serif);
-  font-size: 25px;
+  font-size: 22px;
   transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
@@ -2775,7 +2839,7 @@ h2 em,
 .footer-nav a {
   color: var(--white);
   font-family: var(--serif);
-  font-size: clamp(32px, 3vw, 43px);
+  font-size: clamp(25px, 2.4vw, 34px);
   line-height: 1.05;
 }
 
@@ -3392,7 +3456,8 @@ h2 em,
   }
 
   .az-copy {
-    padding: 36px 22px 0;
+    min-height: auto;
+    padding: 32px 22px 4px;
   }
 
   .az-copy h2 {
@@ -3412,11 +3477,8 @@ h2 em,
   }
 
   .az-card img {
-    height: 210px;
-  }
-
-  .home-page .az-card img {
-    display: none;
+    display: block;
+    height: 220px;
   }
 
   .home-page .az-card div {
@@ -3424,7 +3486,7 @@ h2 em,
   }
 
   .home-page .az-card {
-    min-height: 170px;
+    min-height: auto;
   }
 
   .home-page .numbers-section {
@@ -3853,5 +3915,120 @@ h2 em,
 
   .hero-float {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-page .az-services {
+    padding-bottom: 18px;
+  }
+
+  .home-page .az-rail {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 82%;
+    grid-template-columns: none;
+    overflow-x: auto;
+    padding: 18px 14px 22px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .home-page .az-card {
+    min-height: 390px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .home-page .az-card img {
+    display: block;
+    height: 205px;
+  }
+
+  .home-page .az-card div {
+    padding: 22px;
+  }
+
+  .home-page .numbers-section {
+    display: block;
+  }
+
+  .home-page .numbers-intro {
+    padding: 26px 22px 8px;
+    border-right: 0;
+  }
+
+  .home-page .numbers-intro h2 {
+    margin-bottom: 0;
+    font-size: 34px;
+  }
+
+  .home-page .numbers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0 12px 12px;
+    gap: 10px;
+  }
+
+  .home-page .number-card,
+  .home-page .number-card:nth-child(2n),
+  .home-page .number-card:nth-child(n + 3) {
+    min-height: 138px;
+    padding: 18px 14px;
+    border: 1px dashed rgba(7, 29, 59, 0.24);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.48);
+  }
+
+  .home-page .number-card strong {
+    font-size: 34px;
+  }
+
+  .home-page .number-card span {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 680px) {
+  .site-footer {
+    min-height: auto;
+  }
+
+  .footer-shell {
+    width: min(100% - 28px, 1180px);
+    padding: 34px 0 20px;
+  }
+
+  .footer-logo {
+    width: 116px;
+    height: 72px;
+  }
+
+  .footer-brand-block p {
+    font-size: 19px;
+  }
+
+  .footer-main {
+    margin-top: 24px;
+    padding: 22px 0;
+    gap: 22px;
+  }
+
+  .footer-cta p,
+  .footer-contact span {
+    margin-bottom: 16px;
+    font-size: 20px;
+  }
+
+  .footer-button {
+    min-height: 54px;
+    font-size: 19px;
+  }
+
+  .footer-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 18px;
+  }
+
+  .footer-nav a {
+    font-size: 24px;
   }
 }
