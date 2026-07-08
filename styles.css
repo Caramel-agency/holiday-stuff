@@ -228,8 +228,8 @@ textarea {
   height: 58px;
   display: block;
   object-fit: contain;
-  border-radius: 10px;
-  background: #000;
+  border-radius: 0;
+  background: transparent;
 }
 
 .home-brand-logo {
@@ -241,6 +241,46 @@ textarea {
 .site-footer .brand-logo {
   width: 170px;
   height: 128px;
+}
+
+.home-page .trip-ease,
+.home-page .different-section,
+.home-page .insta-section,
+.home-page .popular-destinations,
+.home-page .packages-home,
+.home-page .testimonial-home,
+.home-page .faq-home {
+  display: none;
+}
+
+.home-page .breeza-way {
+  min-height: auto;
+  margin-bottom: 80px;
+  padding: 64px 24px 70px;
+}
+
+.home-page .letter-gallery {
+  min-height: 0;
+  height: auto;
+  margin: 34px auto 0;
+}
+
+.home-page .letter-tile {
+  height: clamp(150px, 13vw, 210px);
+}
+
+.home-page .way-copy {
+  margin-top: 54px;
+}
+
+.home-page .az-card:nth-child(n + 5) {
+  display: none;
+}
+
+.home-page .numbers-intro p,
+.home-page .number-card p,
+.home-page .card-body p {
+  display: none;
 }
 
 .brand-mark {
@@ -3310,6 +3350,19 @@ h2 em,
     font-size: 82px;
   }
 
+  .home-page .breeza-way {
+    padding: 38px 18px 44px;
+    margin-bottom: 62px;
+  }
+
+  .home-page .way-title h2 {
+    font-size: 46px;
+  }
+
+  .home-page .letter-gallery {
+    display: none;
+  }
+
   .way-copy {
     margin-top: 28px;
   }
@@ -3359,7 +3412,37 @@ h2 em,
   }
 
   .az-card img {
-    height: 260px;
+    height: 210px;
+  }
+
+  .home-page .az-card img {
+    display: none;
+  }
+
+  .home-page .az-card div {
+    padding: 24px;
+  }
+
+  .home-page .az-card {
+    min-height: 170px;
+  }
+
+  .home-page .numbers-section {
+    margin-bottom: 74px;
+  }
+
+  .home-page .numbers-intro,
+  .home-page .number-card {
+    min-height: auto;
+    padding: 28px 22px;
+  }
+
+  .home-page .number-card strong {
+    font-size: 44px;
+  }
+
+  .home-page .section {
+    margin-bottom: 74px;
   }
 
   .az-card div {
