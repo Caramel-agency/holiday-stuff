@@ -3328,7 +3328,7 @@ h2 em,
 
   .editorial-destinations {
     width: min(100% - 20px, 1180px);
-    padding: 50px 14px;
+    padding: 44px 14px 64px;
     border-radius: 24px;
   }
 
@@ -3430,12 +3430,36 @@ h2 em,
   }
 
   .dest-heading {
+    margin-bottom: 28px;
+  }
+
+  .dest-heading h2 {
+    font-size: clamp(42px, 12vw, 54px);
+    line-height: 0.98;
+  }
+
+  .feature-package,
+  .split-package {
+    min-height: auto;
+    display: grid;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid rgba(7, 29, 59, 0.1);
+    border-radius: 24px;
+    background: #f7f9fc;
+  }
+
+  .feature-package {
     margin-bottom: 34px;
   }
 
   .feature-package > h3,
   .split-package > h3 {
+    position: relative;
+    inset: auto;
+    order: 1;
     padding: 18px 34px;
+    background: #f7f9fc;
     font-size: 32px;
   }
 
@@ -3443,30 +3467,56 @@ h2 em,
     left: 0;
   }
 
-  .feature-package > img {
-    height: 420px;
+  .feature-package > img,
+  .split-package > img,
+  .split-package:nth-child(2) > img {
+    order: 2;
+    width: 100%;
+    height: 310px;
+    margin: 0;
   }
 
-  .feature-package .package-panel {
-    width: calc(100% - 18px);
-    margin-top: -54px;
-    padding: 30px 24px 0;
+  .feature-package .package-panel,
+  .split-package .package-panel {
+    position: relative;
+    order: 3;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 26px 22px 34px;
+    background: #f7f9fc;
   }
 
   .package-pair {
     grid-template-columns: 1fr;
-    gap: 44px;
+    gap: 28px;
   }
 
-  .split-package > img,
-  .split-package:nth-child(2) > img {
-    height: 330px;
+  .package-panel h4,
+  .split-package .package-panel h4 {
+    margin: 14px 0 14px;
+    font-size: 24px;
+    line-height: 1.08;
   }
 
-  .split-package .package-panel {
-    width: calc(100% - 18px);
-    margin-top: -42px;
-    padding: 24px 22px 0;
+  .package-panel .price-line {
+    display: block;
+  }
+
+  .package-panel .price-line strong {
+    display: block;
+    margin-top: 2px;
+    font-size: 28px;
+  }
+
+  .package-desc {
+    font-size: 15px;
+  }
+
+  .package-panel .btn,
+  .split-package .package-panel .btn {
+    width: 100%;
+    margin-top: 10px;
   }
 
   .popular-destinations {
