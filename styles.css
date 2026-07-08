@@ -1827,10 +1827,16 @@ h2 em,
   background: var(--white);
 }
 
-.az-card img {
+.az-card img,
+.az-card video {
   width: 100%;
   height: 350px;
   object-fit: cover;
+}
+
+.az-card video {
+  display: block;
+  background: var(--navy);
 }
 
 .az-card div {
@@ -3476,7 +3482,8 @@ h2 em,
     min-height: auto;
   }
 
-  .az-card img {
+  .az-card img,
+  .az-card video {
     display: block;
     height: 220px;
   }
@@ -3939,7 +3946,8 @@ h2 em,
     overflow: hidden;
   }
 
-  .home-page .az-card img {
+  .home-page .az-card img,
+  .home-page .az-card video {
     display: block;
     height: 205px;
   }
