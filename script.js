@@ -69,3 +69,131 @@ if (form) {
     window.open(`https://api.whatsapp.com/send?phone=919596999994&text=${text}`, "_blank", "noopener,noreferrer");
   });
 }
+
+const customBuilder = document.querySelector("[data-custom-builder]");
+
+if (customBuilder) {
+  const steps = Array.from(customBuilder.querySelectorAll(".custom-step"));
+  const progress = Array.from(customBuilder.querySelectorAll(".custom-progress span"));
+  const guestInput = customBuilder.querySelector('input[name="guests"]');
+  const vehicleSuggestion = customBuilder.querySelector("[data-vehicle-suggestion]");
+  const vehicleNote = customBuilder.querySelector("[data-vehicle-note]");
+  const acNote = customBuilder.querySelector("[data-ac-note]");
+  const summary = customBuilder.querySelector("[data-custom-summary]");
+  const whatsappLink = customBuilder.querySelector("[data-custom-whatsapp]");
+  let activeStep = 0;
+
+  const vehicleRules = [
+    { max: 4, vehicle: "Indigo", note: "Normal car for 1 to 4 guests." },
+    { max: 6, vehicle: "Ertiga", note: "Comfortable for 5 to 6 guests." },
+    { max: 7, vehicle: "Innova", note: "Premium comfort for up to 7 guests." },
+    { max: 9, vehicle: "Armani", note: "Better for a larger private group." },
+    { max: 16, vehicle: "Tempo Traveller", note: "Best for 7 to 16 guests." },
+    { max: 80, vehicle: "Bus", note: "Best for large groups and tours." },
+  ];
+
+  const acCosts = {
+    Indigo: 300,
+    Ertiga: 300,
+    Innova: 300,
+    Armani: 300,
+    "Tempo Traveller": 500,
+    Bus: 1000,
+  };
+
+  const getSuggestedVehicle = () => {
+    const guests = Math.max(1, Number(guestInput?.value || 1));
+    return vehicleRules.find((rule) => guests <= rule.max) || vehicleRules[vehicleRules.length - 1];
+  };
+
+  const setVehicle = (vehicle) => {
+    const input = customBuilder.querySelector(`input[name="vehicle"][value="${vehicle}"]`);
+    if (input) input.checked = true;
+  };
+
+  const getCheckedValue = (name) => {
+    const selected = customBuilder.querySelector(`input[name="${name}"]:checked`);
+    return selected ? selected.value : "";
+  };
+
+  const getPlaces = () => {
+    const checked = Array.from(customBuilder.querySelectorAll('input[name="places"]:checked')).map((input) => input.value);
+    const customPlace = customBuilder.querySelector('textarea[name="customPlace"]')?.value.trim();
+    if (customPlace) checked.push(customPlace);
+    return checked.length ? checked.join(", ") : "Custom route";
+  };
+
+  const updateVehicleSuggestion = (syncChoice = true) => {
+    const suggestion = getSuggestedVehicle();
+    if (vehicleSuggestion) vehicleSuggestion.textContent = suggestion.vehicle;
+    if (vehicleNote) vehicleNote.textContent = suggestion.note;
+    if (syncChoice) setVehicle(suggestion.vehicle);
+    updateAcNote();
+  };
+
+  const updateAcNote = () => {
+    const vehicle = getCheckedValue("vehicle") || getSuggestedVehicle().vehicle;
+    const cost = acCosts[vehicle] || 300;
+    const label = vehicle === "Tempo Traveller" ? "tempo" : vehicle.toLowerCase();
+    if (acNote) acNote.textContent = `AC add-on: Rs. ${cost}/day for ${label}. Non AC has no add-on.`;
+  };
+
+  const renderSummary = () => {
+    const vehicle = getCheckedValue("vehicle") || getSuggestedVehicle().vehicle;
+    const ac = getCheckedValue("ac") || "AC";
+    const hotel = getCheckedValue("hotel") || "Standard Valley Stay";
+    const meal = getCheckedValue("meal") || "With breakfast";
+    const places = getPlaces();
+    const guests = Math.max(1, Number(guestInput?.value || 1));
+    const acCost = ac === "AC" ? `Rs. ${acCosts[vehicle] || 300}/day add-on` : "No AC add-on";
+
+    const rows = [
+      ["Places", places],
+      ["Guests", String(guests)],
+      ["Vehicle", vehicle],
+      ["Comfort", `${ac} (${acCost})`],
+      ["Hotel", hotel],
+      ["Meals", meal],
+    ];
+
+    if (summary) {
+      summary.innerHTML = rows
+        .map(([label, value]) => `<div class="summary-row"><span>${label}</span><strong>${value}</strong></div>`)
+        .join("");
+    }
+
+    if (whatsappLink) {
+      const message = encodeURIComponent(
+        `Hello Breeza Tour & Travels, I want a customized itinerary.\nPlaces: ${places}\nGuests: ${guests}\nVehicle: ${vehicle}\nComfort: ${ac} (${acCost})\nHotel: ${hotel}\nMeals: ${meal}`
+      );
+      whatsappLink.href = `https://api.whatsapp.com/send?phone=919596999994&text=${message}`;
+    }
+  };
+
+  const showStep = (index) => {
+    activeStep = Math.max(0, Math.min(index, steps.length - 1));
+    steps.forEach((step, stepIndex) => step.classList.toggle("is-active", stepIndex === activeStep));
+    progress.forEach((item, progressIndex) => item.classList.toggle("is-active", progressIndex <= activeStep));
+    if (activeStep === 3) renderSummary();
+  };
+
+  customBuilder.querySelectorAll("[data-next]").forEach((button) => {
+    button.addEventListener("click", () => showStep(activeStep + 1));
+  });
+
+  customBuilder.querySelectorAll("[data-prev]").forEach((button) => {
+    button.addEventListener("click", () => showStep(activeStep - 1));
+  });
+
+  guestInput?.addEventListener("input", () => updateVehicleSuggestion(true));
+  customBuilder.querySelectorAll('input[name="vehicle"]').forEach((input) => {
+    input.addEventListener("change", updateAcNote);
+  });
+  customBuilder.querySelectorAll("input, textarea").forEach((input) => {
+    input.addEventListener("input", renderSummary);
+    input.addEventListener("change", renderSummary);
+  });
+
+  updateVehicleSuggestion(true);
+  renderSummary();
+}

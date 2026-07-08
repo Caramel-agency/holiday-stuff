@@ -68,6 +68,110 @@
       </div>
       </section>
 
+    <section class="custom-builder reveal" id="customize-booking">
+      <aside class="custom-intro">
+        <span class="eyebrow">Tailor-made</span>
+        <h2>Customize your <em>booking</em></h2>
+        <p>Select places, guests, vehicle, AC, and hotel style. Breeza turns it into a clean itinerary.</p>
+      </aside>
+      <div class="custom-panel" data-custom-builder>
+        <div class="custom-progress" aria-label="Custom booking steps">
+          <span class="is-active">Places</span>
+          <span>Vehicle</span>
+          <span>Stay</span>
+          <span>Summary</span>
+        </div>
+        <form class="custom-form">
+          <fieldset class="custom-step is-active" data-step="1">
+            <legend>Where do you want to go?</legend>
+            <div class="choice-grid places-grid">
+              <label><input type="checkbox" name="places" value="Gurez Valley"><span>Gurez Valley</span></label>
+              <label><input type="checkbox" name="places" value="Pangong Lake"><span>Pangong Lake</span></label>
+              <label><input type="checkbox" name="places" value="Leh Ladakh"><span>Leh Ladakh</span></label>
+              <label><input type="checkbox" name="places" value="Dal Lake"><span>Dal Lake</span></label>
+              <label><input type="checkbox" name="places" value="Gulmarg"><span>Gulmarg</span></label>
+              <label><input type="checkbox" name="places" value="Pahalgam"><span>Pahalgam</span></label>
+              <label><input type="checkbox" name="places" value="Sonamarg"><span>Sonamarg</span></label>
+              <label><input type="checkbox" name="places" value="Nubra Valley"><span>Nubra Valley</span></label>
+            </div>
+            <label class="custom-textarea">
+              <span>Place not listed?</span>
+              <textarea name="customPlace" rows="3" placeholder="Write the city, valley, lake, or route here"></textarea>
+            </label>
+            <button class="builder-next" type="button" data-next>Next</button>
+          </fieldset>
+
+          <fieldset class="custom-step" data-step="2">
+            <legend>Guests and vehicle</legend>
+            <label class="guest-input">
+              <span>Total number of guests</span>
+              <input type="number" name="guests" min="1" max="80" value="4" inputmode="numeric">
+            </label>
+            <div class="vehicle-suggestion">
+              <span>Suggested vehicle</span>
+              <strong data-vehicle-suggestion>Indigo</strong>
+              <small data-vehicle-note>Normal car for 1 to 4 guests.</small>
+            </div>
+            <div class="choice-grid vehicle-grid">
+              <label><input type="radio" name="vehicle" value="Indigo" checked><span>Indigo</span></label>
+              <label><input type="radio" name="vehicle" value="Ertiga"><span>Ertiga</span></label>
+              <label><input type="radio" name="vehicle" value="Innova"><span>Innova</span></label>
+              <label><input type="radio" name="vehicle" value="Armani"><span>Armani</span></label>
+              <label><input type="radio" name="vehicle" value="Tempo Traveller"><span>Tempo</span></label>
+              <label><input type="radio" name="vehicle" value="Bus"><span>Bus</span></label>
+            </div>
+            <div class="builder-actions">
+              <button type="button" data-prev>Back</button>
+              <button class="builder-next" type="button" data-next>Next</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="custom-step" data-step="3">
+            <legend>Comfort and hotel</legend>
+            <div class="split-options">
+              <div>
+                <span class="mini-label">Vehicle comfort</span>
+                <div class="choice-grid two-col">
+                  <label><input type="radio" name="ac" value="AC" checked><span>AC</span></label>
+                  <label><input type="radio" name="ac" value="Non AC"><span>Non AC</span></label>
+                </div>
+                <p class="ac-note" data-ac-note>AC add-on: Rs. 300/day for normal car, Ertiga, Innova, and Armani. Rs. 500/day for tempo. Rs. 1000/day for bus.</p>
+              </div>
+              <div>
+                <span class="mini-label">Meals</span>
+                <div class="choice-grid two-col">
+                  <label><input type="radio" name="meal" value="With breakfast" checked><span>Breakfast</span></label>
+                  <label><input type="radio" name="meal" value="Without breakfast"><span>No breakfast</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="hotel-list">
+              <span class="mini-label">Hotel preference</span>
+              <label><input type="radio" name="hotel" value="Standard Valley Stay" checked><span><b>Standard Valley Stay</b><small>Simple, clean, central.</small></span></label>
+              <label><input type="radio" name="hotel" value="Deluxe Mountain View"><span><b>Deluxe Mountain View</b><small>Better rooms and views.</small></span></label>
+              <label><input type="radio" name="hotel" value="Premium Houseboat"><span><b>Premium Houseboat</b><small>Dal Lake style stay.</small></span></label>
+              <label><input type="radio" name="hotel" value="Luxury Resort"><span><b>Luxury Resort</b><small>Best comfort category.</small></span></label>
+            </div>
+            <div class="builder-actions">
+              <button type="button" data-prev>Back</button>
+              <button class="builder-next" type="button" data-next>Preview</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="custom-step" data-step="4">
+            <legend>Your custom plan</legend>
+            <div class="custom-summary" data-custom-summary>
+              <p>Select your preferences to generate a booking summary.</p>
+            </div>
+            <div class="builder-actions">
+              <button type="button" data-prev>Back</button>
+              <a class="btn btn-primary custom-submit" data-custom-whatsapp href="https://api.whatsapp.com/send?phone=919596999994" target="_blank" rel="noopener">Send plan</a>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
     <section class="az-services reveal" id="services-preview">
       <aside class="az-copy">
         <span class="eyebrow">Concierge</span>
