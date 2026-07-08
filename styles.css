@@ -108,8 +108,8 @@ textarea {
 .home-brand {
   position: absolute;
   left: 50%;
-  top: 8px;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   justify-content: center;
   color: var(--white);
   font-family: var(--serif);
@@ -224,17 +224,18 @@ textarea {
 }
 
 .brand-logo {
-  width: 136px;
+  width: 116px;
   height: 58px;
   display: block;
   object-fit: contain;
+  object-position: center;
   border-radius: 0;
   background: transparent;
 }
 
 .home-brand-logo {
-  width: 104px;
-  height: 62px;
+  width: 112px;
+  height: 58px;
   filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.28));
 }
 
@@ -2980,13 +2981,13 @@ h2 em,
 
   .home-page .home-brand {
     left: 20px;
-    top: 8px;
-    transform: none;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .home-brand-logo {
-    width: 92px;
-    height: 54px;
+    width: 98px;
+    height: 50px;
   }
 
   .home-nav-actions {
