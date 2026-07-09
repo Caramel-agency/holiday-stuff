@@ -3358,14 +3358,28 @@ h2 em,
   margin-top: auto;
   padding-top: 18px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 20px;
   color: rgba(255, 255, 255, 0.68);
   font-size: 14px;
 }
 
-.footer-bottom a {
+.footer-bottom a,
+.footer-proprietor a {
   color: rgba(255, 255, 255, 0.82);
+}
+
+.footer-proprietor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
 }
 
 @keyframes footerMotion {
@@ -4621,16 +4635,16 @@ h2 em,
   .custom-builder {
     width: min(100% - 16px, 1180px);
     margin: 16px auto 48px;
-    padding: 14px;
+    padding: 20px 14px 16px;
     border-radius: 24px;
-    gap: 14px;
+    gap: 18px;
   }
 
   .custom-intro h2 {
     margin: 0;
-    padding: 4px 4px 0;
-    font-size: 31px;
-    line-height: 1;
+    padding: 6px 8px 0;
+    font-size: 29px;
+    line-height: 1.08;
   }
 
   .custom-intro p {
@@ -4638,7 +4652,7 @@ h2 em,
   }
 
   .custom-panel {
-    padding: 12px;
+    padding: 14px;
     border-radius: 20px;
   }
 

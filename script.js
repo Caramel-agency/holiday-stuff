@@ -51,10 +51,12 @@ if (lightbox) {
   });
 }
 
+const BOOKING_PHONE = "919186186318";
+
 document.querySelectorAll("[data-whatsapp-package]").forEach((link) => {
   const packageName = link.getAttribute("data-whatsapp-package");
   const text = encodeURIComponent(`Hello Breeza Tour & Travels, I am interested in ${packageName}. Please share details.`);
-  link.href = `https://api.whatsapp.com/send?phone=916005984629&text=${text}`;
+  link.href = `https://api.whatsapp.com/send?phone=${BOOKING_PHONE}&text=${text}`;
 });
 
 const form = document.querySelector(".form");
@@ -66,7 +68,7 @@ if (form) {
     const packageName = data.get("package") || "a custom trip";
     const message = data.get("message") || "Please contact me with details.";
     const text = encodeURIComponent(`Hello Breeza Tour & Travels, I am ${name}. I am interested in ${packageName}. ${message}`);
-    window.open(`https://api.whatsapp.com/send?phone=916005984629&text=${text}`, "_blank", "noopener,noreferrer");
+    window.open(`https://api.whatsapp.com/send?phone=${BOOKING_PHONE}&text=${text}`, "_blank", "noopener,noreferrer");
   });
 }
 
@@ -89,7 +91,7 @@ if (customBuilder) {
     { max: 7, vehicle: "Innova", note: "Premium comfort for up to 7 guests." },
     { max: 9, vehicle: "Urbaniya", note: "Premium van for a larger private group." },
     { max: 16, vehicle: "Tempo Traveller", note: "Best for 7 to 16 guests." },
-    { max: 80, vehicle: "Bus", note: "Best for large groups and tours." },
+    { max: 500, vehicle: "Bus", note: "Best for large groups and tours." },
   ];
 
   const acCosts = {
@@ -102,9 +104,11 @@ if (customBuilder) {
   };
 
   const getGuestCount = () => {
-    const rawGuests = Number(guestInput?.value || 1);
-    const guests = Math.min(80, Math.max(1, Number.isFinite(rawGuests) ? rawGuests : 1));
-    if (guestInput && Number(guestInput.value) !== guests) guestInput.value = String(guests);
+    const value = guestInput?.value.trim();
+    if (!value) return 1;
+    const rawGuests = Number(value);
+    const guests = Math.min(500, Math.max(1, Number.isFinite(rawGuests) ? rawGuests : 1));
+    if (guestInput && Number(guestInput.value) > 500) guestInput.value = "500";
     return guests;
   };
 
@@ -173,7 +177,7 @@ if (customBuilder) {
       const message = encodeURIComponent(
         `Hello Breeza Tour & Travels, I want a customized itinerary.\nPlaces: ${places}\nGuests: ${guests}\nVehicle: ${vehicle}\nComfort: ${ac} (${acCost})\nHotel: ${hotel}\nMeals: ${meal}`
       );
-      whatsappLink.href = `https://api.whatsapp.com/send?phone=916005984629&text=${message}`;
+      whatsappLink.href = `https://api.whatsapp.com/send?phone=${BOOKING_PHONE}&text=${message}`;
     }
   };
 
