@@ -1636,6 +1636,7 @@ h2 em,
 
 .custom-form {
   min-height: 0;
+  min-width: 0;
 }
 
 .custom-step {
@@ -1646,6 +1647,7 @@ h2 em,
   padding: clamp(22px, 2.6vw, 32px);
   border: 1px dashed rgba(255, 255, 255, 0.2);
   border-radius: 22px;
+  overflow: hidden;
 }
 
 .custom-step.is-active {
@@ -1717,6 +1719,7 @@ h2 em,
   display: grid;
   gap: 12px;
   margin-top: 20px;
+  min-width: 0;
 }
 
 .custom-textarea span,
@@ -1732,6 +1735,8 @@ h2 em,
 .custom-textarea textarea,
 .guest-input input {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.1);
@@ -1859,6 +1864,12 @@ h2 em,
   background: var(--white);
   color: var(--navy);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+}
+
+.custom-step > .builder-next {
+  width: min(180px, 100%);
+  margin-top: 18px;
+  margin-left: auto;
 }
 
 .custom-summary {
