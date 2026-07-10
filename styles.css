@@ -1082,6 +1082,76 @@ h2 em,
   object-fit: cover;
 }
 
+.services-showcase {
+  margin-top: 64px;
+}
+
+.services-showcase .grid-3 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.service-photo-card {
+  min-height: 430px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  border: 0;
+  border-radius: 26px;
+  color: var(--white);
+  background: var(--navy);
+  box-shadow: 0 18px 60px rgba(7, 29, 59, 0.14);
+}
+
+.service-photo-card:first-child {
+  grid-row: span 2;
+  min-height: 878px;
+}
+
+.service-photo-card .card-img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  filter: saturate(1.04) contrast(1.02);
+}
+
+.service-photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2, 11, 24, 0.04), rgba(2, 11, 24, 0.82)),
+    radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.14), transparent 34%);
+}
+
+.service-photo-card .card-body {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.service-photo-card .card-body span {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.service-photo-card h3 {
+  max-width: 420px;
+  color: var(--white);
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 0.98;
+}
+
+.service-photo-card p {
+  max-width: 460px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
 .destination-card {
   min-height: 490px;
   display: flex;
@@ -3910,6 +3980,22 @@ h2 em,
     grid-template-columns: 1fr;
   }
 
+  .services-showcase {
+    margin-top: 34px;
+  }
+
+  .services-showcase .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .service-photo-card,
+  .service-photo-card:first-child {
+    min-height: 390px;
+    grid-row: auto;
+    border-radius: 22px;
+  }
+
   .breeza-way {
     width: min(100% - 20px, 1180px);
     padding: 54px 14px;
@@ -4640,10 +4726,14 @@ h2 em,
 @media (max-width: 680px) {
   .custom-builder {
     width: min(100% - 16px, 1180px);
-    margin: 16px auto 48px;
+    margin: -26px auto 48px;
     padding: 20px 14px 16px;
     border-radius: 24px;
     gap: 18px;
+    position: relative;
+    z-index: 3;
+    border: 8px solid #eef2f8;
+    box-shadow: 0 24px 70px rgba(7, 29, 59, 0.22);
   }
 
   .custom-intro h2 {
