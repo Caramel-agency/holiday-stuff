@@ -3377,9 +3377,15 @@ h2 em,
   flex-wrap: wrap;
   gap: 8px 12px;
   color: rgba(255, 255, 255, 0.72);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.03em;
+}
+
+.footer-proprietor a {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
 }
 
 @keyframes footerMotion {
@@ -3491,13 +3497,13 @@ h2 em,
   }
 
   .home-page .home-brand {
-    left: 4px;
+    left: -42px;
     top: 50%;
     transform: translateY(-50%);
   }
 
   .home-brand-logo {
-    width: 112px;
+    width: 138px;
     height: 58px;
   }
 
