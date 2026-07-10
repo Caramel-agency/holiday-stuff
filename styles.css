@@ -1037,6 +1037,14 @@ h2 em,
   color: rgba(255, 255, 255, 0.78);
 }
 
+.services-hero {
+  min-height: 500px;
+  background:
+    linear-gradient(90deg, rgba(7, 29, 59, 0.78), rgba(7, 29, 59, 0.26) 52%, rgba(7, 29, 59, 0.66)),
+    linear-gradient(180deg, rgba(7, 29, 59, 0.12), rgba(7, 29, 59, 0.86)),
+    var(--page-image, url("assets/services/flight-booking.jpg")) center 38% / cover;
+}
+
 .grid {
   display: grid;
   gap: 22px;
@@ -4726,19 +4734,22 @@ h2 em,
 @media (max-width: 680px) {
   .custom-builder {
     width: min(100% - 16px, 1180px);
-    margin: -26px auto 48px;
-    padding: 20px 14px 16px;
+    margin: 18px auto 48px;
+    padding: 18px 12px 14px;
     border-radius: 24px;
-    gap: 18px;
+    gap: 14px;
     position: relative;
     z-index: 3;
-    border: 8px solid #eef2f8;
-    box-shadow: 0 24px 70px rgba(7, 29, 59, 0.22);
+    border: 1px solid rgba(7, 29, 59, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(238, 242, 248, 0.96));
+    color: var(--navy);
+    box-shadow: 0 18px 52px rgba(7, 29, 59, 0.12);
   }
 
   .custom-intro h2 {
     margin: 0;
-    padding: 6px 8px 0;
+    padding: 4px 6px 2px;
+    color: var(--navy);
     font-size: 29px;
     line-height: 1.08;
   }
@@ -4750,6 +4761,9 @@ h2 em,
   .custom-panel {
     padding: 14px;
     border-radius: 20px;
+    background:
+      radial-gradient(ellipse at 12% 0%, rgba(255, 255, 255, 0.1), transparent 36%),
+      linear-gradient(135deg, #071d3b 0%, #102f50 70%, #06162b 100%);
   }
 
   .custom-progress {
