@@ -1040,9 +1040,9 @@ h2 em,
 .services-hero {
   min-height: 500px;
   background:
-    linear-gradient(90deg, rgba(7, 29, 59, 0.78), rgba(7, 29, 59, 0.26) 52%, rgba(7, 29, 59, 0.66)),
-    linear-gradient(180deg, rgba(7, 29, 59, 0.12), rgba(7, 29, 59, 0.86)),
-    var(--page-image, url("assets/services/flight-booking.jpg")) center 38% / cover;
+    linear-gradient(90deg, rgba(7, 29, 59, 0.76), rgba(7, 29, 59, 0.2) 54%, rgba(7, 29, 59, 0.46)),
+    linear-gradient(180deg, rgba(7, 29, 59, 0.04), rgba(7, 29, 59, 0.78)),
+    var(--page-image, url("assets/services/airport-taxis.jpg")) center 46% / cover;
 }
 
 .grid {
