@@ -1083,12 +1083,12 @@ h2 em,
 }
 
 .services-showcase {
-  margin-top: 64px;
+  margin-top: 72px;
 }
 
 .services-showcase .grid-3 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 30px;
 }
 
 .service-photo-card {
@@ -1105,7 +1105,7 @@ h2 em,
 
 .service-photo-card:first-child {
   grid-row: span 2;
-  min-height: 878px;
+  min-height: 890px;
 }
 
 .service-photo-card .card-img {
@@ -3981,12 +3981,12 @@ h2 em,
   }
 
   .services-showcase {
-    margin-top: 34px;
+    margin-top: 42px;
   }
 
   .services-showcase .grid-3 {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 22px;
   }
 
   .service-photo-card,
