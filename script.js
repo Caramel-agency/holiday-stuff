@@ -1,6 +1,32 @@
 const navToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
+const loadDeferredVideos = () => {
+  document.querySelectorAll("video[data-video-defer]").forEach((video) => {
+    video.querySelectorAll("source[data-src]").forEach((source) => {
+      source.src = source.dataset.src;
+      source.removeAttribute("data-src");
+    });
+    video.load();
+    const playRequest = video.play();
+    if (playRequest) playRequest.catch(() => {});
+  });
+};
+
+const scheduleDeferredVideos = () => {
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(loadDeferredVideos, { timeout: 2200 });
+    return;
+  }
+  window.setTimeout(loadDeferredVideos, 1200);
+};
+
+if (document.readyState === "complete") {
+  scheduleDeferredVideos();
+} else {
+  window.addEventListener("load", scheduleDeferredVideos, { once: true });
+}
+
 if (navToggle && navLinks) {
   navToggle.addEventListener("click", () => {
     const isOpen = navLinks.classList.toggle("is-open");
