@@ -5174,3 +5174,114 @@ h2 em,
     margin-top: 18px;
   }
 }
+
+/* Guard the conversion package grid from later generic section/card rules. */
+#kashmir-packages.compact-section {
+  width: min(100% - 32px, 1440px);
+  min-height: 0;
+  margin-inline: auto;
+  padding: clamp(54px, 8vw, 92px) 0 clamp(46px, 7vw, 80px);
+}
+
+@media (max-width: 720px) {
+  #kashmir-packages.compact-section {
+    width: min(100% - 20px, 1440px);
+    padding-top: 42px;
+  }
+
+  #kashmir-packages .section-heading-row {
+    align-items: stretch;
+    gap: 18px;
+  }
+}
+
+/* Shared guard for package grids on index and package listing pages. */
+.compact-section .package-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.compact-section .package-card-pro {
+  display: flex;
+  min-height: 0;
+  height: auto;
+  max-height: none;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(7, 29, 59, 0.12);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 18px 42px rgba(7, 29, 59, 0.08);
+}
+
+.compact-section .package-card-pro img {
+  position: static;
+  inset: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: 4 / 3;
+  flex: 0 0 auto;
+  object-fit: cover;
+}
+
+.compact-section .package-card-pro > div {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.compact-section .package-card-pro h3 {
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  line-height: 0.98;
+}
+
+.compact-section .package-card-pro p {
+  line-height: 1.45;
+}
+
+.compact-section .package-actions {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+@media (max-width: 1120px) {
+  .compact-section .package-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .compact-section .package-card-grid {
+    display: flex;
+    gap: 16px;
+    margin-inline: -10px;
+    padding: 0 10px 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .compact-section .package-card-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .compact-section .package-card-pro {
+    flex: 0 0 min(84vw, 340px);
+    border-radius: 22px;
+    scroll-snap-align: start;
+  }
+
+  .compact-section .package-card-pro > div {
+    padding: 18px;
+  }
+
+  .compact-section .package-actions .btn {
+    width: 100%;
+  }
+}
