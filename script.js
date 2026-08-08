@@ -1,6 +1,8 @@
 const navToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
+document.documentElement.classList.add("has-reveal-js");
+
 const loadDeferredVideos = () => {
   document.querySelectorAll("video[data-video-defer]").forEach((video) => {
     video.querySelectorAll("source[data-src]").forEach((source) => {
