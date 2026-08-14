@@ -42,8 +42,8 @@
   --gold: #d6a24b;
   --shadow: 0 24px 70px rgba(7, 29, 59, 0.14);
   --radius: 28px;
-  --serif: "Playfair Display", Georgia, serif;
-  --sans: "Plus Jakarta Sans", Arial, sans-serif;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Manrope", Arial, sans-serif;
 }
 
 * {
@@ -565,7 +565,7 @@ textarea {
 
 .home-brand-logo {
   width: 154px;
-  height: 82px;
+  height: 58px;
   filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.28));
 }
 
@@ -3213,8 +3213,8 @@ h2 em,
   border: 1px dashed rgba(7, 29, 59, 0.32);
   border-radius: 28px;
   background:
-    linear-gradient(135deg, rgba(7, 29, 59, 0.04), transparent 42%),
-    #f3f6fa;
+    linear-gradient(145deg, rgba(224, 237, 243, 0.96), rgba(241, 247, 249, 0.9)),
+    radial-gradient(circle at 16% 0, rgba(7, 29, 59, 0.08), transparent 42%);
 }
 
 .numbers-intro {
@@ -4988,7 +4988,7 @@ h2 em,
     padding: 18px 14px;
     border: 1px dashed rgba(7, 29, 59, 0.24);
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.48);
+    background: rgba(245, 249, 250, 0.56);
   }
 
   .home-page .number-card strong {
@@ -5497,6 +5497,37 @@ h2 em,
   }
 }
 
+@media (max-width: 720px) {
+  .home-page .numbers-section,
+  .home-page #home-faq.section.narrow {
+    width: calc(100% - 16px);
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background:
+      linear-gradient(145deg, rgba(227, 238, 243, 0.96), rgba(239, 246, 248, 0.9)),
+      radial-gradient(circle at 12% 0%, rgba(6, 26, 49, 0.07), transparent 36%);
+    border-color: rgba(7, 29, 59, 0.18);
+    border-radius: 24px;
+    box-shadow: 0 14px 42px rgba(7, 29, 59, 0.04);
+  }
+
+  .home-page #home-faq.section.narrow {
+    padding: 24px 14px;
+  }
+
+  .home-page .faq-button {
+    padding: 20px 0;
+    font-size: 26px;
+    line-height: 1.05;
+  }
+
+  .home-page .faq-panel {
+    padding-bottom: 22px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}
+
 /* Mobile-first flow polish for the restored Breeza direction. */
 .home-page {
   background:
@@ -5835,7 +5866,8 @@ h2 em,
 
 .minimal-footer .footer-button,
 .minimal-footer .footer-whatsapp {
-  width: min(100%, 260px);
+  width: fit-content;
+  max-width: 100%;
 }
 
 .minimal-footer .footer-button {
@@ -5846,9 +5878,9 @@ h2 em,
 }
 
 .minimal-footer .footer-button span {
-  font-family: var(--sans);
-  font-size: 15px;
-  font-weight: 800;
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 600;
 }
 
 .minimal-footer .footer-button small {
@@ -5858,15 +5890,15 @@ h2 em,
 .minimal-footer .footer-contact {
   display: flex;
   justify-content: center;
-  padding: 18px 20px;
+  padding: 13px 18px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 22px;
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.06);
 }
 
 .minimal-footer .footer-contact a {
   color: var(--white);
-  font-size: clamp(22px, 3vw, 36px);
+  font-size: clamp(19px, 2.2vw, 28px);
   font-family: var(--serif);
   font-weight: 500;
   line-height: 1.05;
@@ -5877,14 +5909,7 @@ h2 em,
 }
 
 .minimal-footer .footer-contact a:after {
-  content: "Booking line";
-  display: block;
-  margin-top: 8px;
-  color: rgba(255, 255, 255, 0.72);
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.03em;
+  content: none;
 }
 
 .minimal-footer .footer-nav {
@@ -5942,8 +5967,8 @@ h2 em,
   }
 
   .minimal-footer .footer-logo {
-    width: 156px;
-    height: 106px;
+    width: 154px;
+    height: 58px;
   }
 
   .minimal-footer .footer-main {
@@ -5953,17 +5978,37 @@ h2 em,
   }
 
   .minimal-footer .footer-cta {
-    grid-template-columns: 1fr;
+    display: grid;
+    justify-items: center;
+    gap: 10px;
   }
 
   .minimal-footer .footer-button,
   .minimal-footer .footer-whatsapp {
-    width: 100%;
+    min-width: 0;
+  }
+
+  .minimal-footer .footer-button {
+    width: min(100%, 300px);
+    min-height: 54px;
+    padding-inline: 22px;
+  }
+
+  .minimal-footer .footer-button small {
+    display: none;
+  }
+
+  .minimal-footer .footer-whatsapp {
+    width: fit-content;
+    min-height: 48px;
+    padding-inline: 18px;
   }
 
   .minimal-footer .footer-contact {
     order: -1;
-    padding: 18px;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 12px 18px;
     text-align: center;
   }
 
@@ -6013,35 +6058,39 @@ h2 em,
 @media (max-width: 720px) {
   .home-page main {
     background:
-      linear-gradient(180deg, #eef4f7 0%, #f5f8fb 32%, #edf4f6 100%);
+      linear-gradient(180deg, #06182e 0, #071d3b 84px, #dfeaf0 292px, #e8f1f4 100%);
   }
 
   .home-page .cinema-hero {
-    width: calc(100% - 12px);
+    width: calc(100% - 16px);
     min-height: auto;
-    margin-top: 8px;
+    margin-top: 6px;
     padding: 18px;
-    border-radius: 24px 24px 32px 32px;
+    border-radius: 24px 24px 28px 28px;
+    box-shadow: 0 22px 54px rgba(7, 29, 59, 0.18);
   }
 
   .home-page .home-nav {
-    min-height: 112px;
+    width: calc(100% - 28px);
+    min-height: 90px;
   }
 
   .home-page .home-brand {
-    top: 16px;
+    left: -3px;
+    top: 15px;
     transform: none;
   }
 
   .home-brand-logo {
-    width: 140px;
-    height: 82px;
+    width: 132px;
+    height: 52px;
+    object-position: left center;
   }
 
   .home-page .cinema-content {
-    min-height: 560px;
+    min-height: 535px;
     align-items: center;
-    padding: 78px 0 8px;
+    padding: 64px 0 8px;
   }
 
   .home-page .cinema-copy {
@@ -6069,9 +6118,9 @@ h2 em,
 
   .home-page .hero-actions-premium .btn {
     min-height: 52px;
-    font-family: var(--sans);
-    font-size: 15px;
-    font-weight: 700;
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 600;
   }
 
   .home-page #kashmir-packages.compact-section,
@@ -6082,14 +6131,17 @@ h2 em,
   .home-page .contact-strip,
   .home-page .cta-band,
   .home-page .custom-builder {
-    width: calc(100% - 12px);
+    width: calc(100% - 16px);
   }
 
   .home-page #kashmir-packages.compact-section {
-    margin-top: -14px;
-    padding: 32px 14px 12px;
-    border-radius: 30px 30px 24px 24px;
-    box-shadow: 0 14px 44px rgba(7, 29, 59, 0.06);
+    margin-top: -8px;
+    padding: 30px 14px 12px;
+    border-radius: 28px 28px 22px 22px;
+    background:
+      linear-gradient(160deg, rgba(227, 238, 243, 0.98), rgba(242, 247, 249, 0.9)),
+      radial-gradient(circle at 86% 0, rgba(7, 29, 59, 0.08), transparent 34%);
+    box-shadow: 0 18px 46px rgba(7, 29, 59, 0.07);
   }
 
   .home-page .section-heading-row {
@@ -6114,27 +6166,30 @@ h2 em,
   }
 
   .home-page .package-card-pro h3 {
-    font-family: var(--sans);
-    font-size: 20px;
+    font-family: var(--serif);
+    font-size: 24px;
     line-height: 1.12;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   .home-page .section-heading-row .btn {
     width: 100%;
     min-height: 52px;
-    font-family: var(--sans);
-    font-size: 15px;
-    font-weight: 700;
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 600;
   }
 
   .home-page .trust-section,
   .home-page .testimonial-section,
   .home-page .contact-strip {
-    margin-top: -4px;
+    margin-top: 8px;
     padding: 24px 14px;
     border-radius: 24px;
-    box-shadow: 0 14px 42px rgba(7, 29, 59, 0.05);
+    background:
+      linear-gradient(145deg, rgba(227, 238, 243, 0.96), rgba(239, 246, 248, 0.9)),
+      radial-gradient(circle at 12% 0%, rgba(6, 26, 49, 0.08), transparent 36%);
+    box-shadow: 0 14px 42px rgba(7, 29, 59, 0.04);
   }
 
   .home-page .testimonial-section .review-grid {
@@ -6164,17 +6219,20 @@ h2 em,
   }
 
   .home-page .guide-strip {
-    margin-top: 10px;
+    margin-top: 8px;
     padding: 22px 16px;
     border-radius: 24px;
+    background:
+      linear-gradient(145deg, rgba(227, 238, 243, 0.96), rgba(239, 246, 248, 0.88));
   }
 
   .home-page .custom-builder {
     width: calc(100% - 14px);
-    margin: 10px auto 16px;
+    margin: 8px auto 16px;
     padding: 8px;
     border-radius: 22px;
-    background: rgba(255, 255, 255, 0.9);
+    background:
+      linear-gradient(180deg, rgba(231, 240, 244, 0.98), rgba(244, 248, 249, 0.94));
   }
 
   .home-page .custom-intro {
@@ -6186,10 +6244,10 @@ h2 em,
 
   .home-page .custom-intro h2 {
     max-width: 230px;
-    font-family: var(--sans);
-    font-size: 24px;
+    font-family: var(--serif);
+    font-size: 31px;
     line-height: 1.05;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   .home-page .custom-panel {
@@ -6208,10 +6266,10 @@ h2 em,
   .home-page .custom-step legend {
     max-width: 270px;
     margin-bottom: 12px;
-    font-family: var(--sans);
-    font-size: 20px;
+    font-family: var(--serif);
+    font-size: 28px;
     line-height: 1.15;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   .home-page .custom-progress {
@@ -6300,9 +6358,9 @@ h2 em,
     width: 100%;
     min-height: 48px;
     margin-top: 12px;
-    font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 800;
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 600;
   }
 
   .home-page .builder-actions {
